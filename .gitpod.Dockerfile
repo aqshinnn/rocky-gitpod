@@ -1,14 +1,17 @@
-FROM almalinux:9
+FROM rockylinux:9
 
-RUN dnf -y install epel-release && \
-    dnf -y install sudo vim git net-tools iproute procps-ng passwd && \
-    dnf -y remove curl-minimal && \
-    dnf -y install curl --allowerasing && \
+# Əsas paketlərin quraşdırılması
+RUN dnf -y update && \
+    dnf -y install epel-release && \
+    dnf -y install sudo vim git net-tools iproute procps-ng passwd curl wget tar gzip && \
+    dnf -y groupinstall "Development Tools" && \
     dnf clean all
 
-RUN useradd -m gitpod && echo "gitpod:gitpod123" | chpasswd
-RUN echo "gitpod ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+# GitPod istifadəçisi üçün tənzimləmələr
+RUN useradd -m gitpod && echo "gitpod:gitpod123" | chpasswd && \
+    echo "gitpod ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
+# İş qovluğu və istifadəçi təyini
 USER gitpod
 WORKDIR /home/gitpod
-
+ENV HOME=/home/gitpod
