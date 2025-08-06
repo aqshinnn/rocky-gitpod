@@ -1,6 +1,7 @@
-# .gitpod.yml
 image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - init: echo "✅ Container ready! User: $(whoami), Git: $(git --version)"
+  - init: >
+      echo "✅ Container ready! User: $(whoami), Git: $(git --version)"
+
