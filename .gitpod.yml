@@ -2,6 +2,12 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - init: >
-      echo "✅ Container ready! User: $(whoami), Git: $(git --version)"
+  - name: Setup RHEL-based Environment
+    init: |
+      echo "✅ $(cat /etc/redhat-release) container ready!"
+      echo "👤 User: $(whoami)"
+      echo "🛠️ Git: $(git --version)"
+      echo "🐧 OS Info: $(cat /etc/os-release | grep PRETTY_NAME)"
+      echo "💻 CPU: $(nproc) cores"
+      echo "🧠 Memory: $(free -h | awk '/Mem:/ {print $2}') RAM"
 
