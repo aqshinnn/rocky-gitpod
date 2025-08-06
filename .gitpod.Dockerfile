@@ -1,6 +1,6 @@
 FROM almalinux:9
 
-RUN dnf -y install \
+RUN dnf -y install --allowerasing \
     sudo \
     vim \
     curl \
@@ -10,5 +10,4 @@ RUN dnf -y install \
     && dnf clean all
 
 USER root
-
 
