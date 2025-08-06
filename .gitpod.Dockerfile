@@ -9,7 +9,7 @@ RUN dnf -y update && \
 
 # GitPod istifadəçisi üçün tənzimləmələr
 RUN useradd -m adm && echo "adm:adm123" | chpasswd && \
-    echo "admroot ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+    echo "adm ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 # İş qovluğu və istifadəçi təyini
 USER admroot
