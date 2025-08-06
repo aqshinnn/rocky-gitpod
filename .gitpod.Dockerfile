@@ -1,4 +1,4 @@
-FROM rockylinux:9
+FROM almalinux:9
 
 RUN dnf -y install \
     sudo \
@@ -10,4 +10,5 @@ RUN dnf -y install \
     && dnf clean all
 
 USER root
+
 
