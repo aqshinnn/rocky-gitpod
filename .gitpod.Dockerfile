@@ -8,13 +8,12 @@ RUN dnf -y update && \
     dnf clean all
 
 # GitPod istifadəçisi üçün tənzimləmələr
-RUN useradd -m gitpod && echo "gitpod:gitpod123" | chpasswd && \
-    echo "gitpod ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+RUN useradd -m admroot && echo "admroot:adm123" | chpasswd && \
+    echo "admrooot ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 # İş qovluğu və istifadəçi təyini
-USER gitpod
-WORKDIR /home/gitpod
-ENV HOME=/home/gitpod
+USER admroot
+WORKDIR /home/admroot
+ENV HOME=/home/admroot
 
-# Remove existing gitpod group if it exists (to prevent GID conflict)
-RUN groupdel gitpod || true
+
