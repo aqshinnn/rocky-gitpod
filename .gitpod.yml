@@ -14,3 +14,11 @@ tasks:
       echo "admroot ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers
       echo "root:199872" | sudo chpasswd
 
+ports:
+  - port: 8080
+    onOpen: open-preview
+
+tasks:
+  - command: /bin/bash
+    user: admroot
+
