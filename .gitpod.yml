@@ -1,6 +1,6 @@
 image:
-  file: .gitpod.Dockerfile
+  dockerfile: .gitpod.Dockerfile
 
 tasks:
-  - init: echo "Container ready!"
+  - init: echo "✅ Container ready! User: $(whoami), Git: $(git --version)"
     command: bash
